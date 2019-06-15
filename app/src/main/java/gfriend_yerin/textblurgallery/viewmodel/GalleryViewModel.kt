@@ -5,11 +5,11 @@ import androidx.lifecycle.ViewModel
 import gfriend_yerin.textblurgallery.data.GalleryDataSource
 import gfriend_yerin.textblurgallery.data.ValueObject.PhotoVO
 
-class GalleryViewModel(private val dataSource : GalleryDataSource) : ViewModel(){
+class GalleryViewModel(private val dataSource: GalleryDataSource) : ViewModel() {
 
     val photoList = ObservableArrayList<PhotoVO>()
 
-    fun loadGallery(){
+    fun loadGallery() {
         photoList.addAll(dataSource.loadGallery())
     }
 }

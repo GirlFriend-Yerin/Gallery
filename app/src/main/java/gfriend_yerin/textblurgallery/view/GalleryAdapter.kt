@@ -4,10 +4,6 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.CheckBox
-import android.widget.ImageView
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.databinding.BindingAdapter
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -19,10 +15,10 @@ import kotlinx.android.synthetic.main.gallery_item.view.*
 
 class GalleryAdapter(
     private val mContext: Context,
-    private val photoList: List<PhotoVO>,
     private val layout: Int
 ) : RecyclerView.Adapter<GalleryAdapter.PhotoViewHolder>() {
 
+    private lateinit var photoList : MutableList<PhotoVO>
     private lateinit var itemClickListener: OnItemClickListener
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PhotoViewHolder {
@@ -35,22 +31,25 @@ class GalleryAdapter(
         return PhotoViewHolder(view)
     }
 
+    fun setPhotoList(photoList : MutableList<PhotoVO>){
+        this.photoList = photoList
+    }
+
     override fun getItemCount() = photoList.size
 
     fun setOnItemClickListener(onItemClickListener: OnItemClickListener) {
         this.itemClickListener = onItemClickListener
     }
 
-    @BindingAdapter("bind_item")
+
     override fun onBindViewHolder(holder: PhotoViewHolder, position: Int) = holder.bind(photoList[position], position)
 
     inner class PhotoViewHolder(private val view: GalleryItemBinding) : RecyclerView.ViewHolder(view.root) {
         fun bind(item: PhotoVO, position: Int) {
+
             view.apply {
                 galleryPhotoDeco.visibility = if (item.selected) View.VISIBLE else View.INVISIBLE
                 galleryPhotoItem
-                galleryItemDecoSelected
-                galleryItemDecoShowOrigin
 
                 Glide.with(mContext).load(item.imagePath).dontAnimate().centerCrop().into(galleryPhotoItem)
 

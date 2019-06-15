@@ -12,9 +12,6 @@
                 name="viewholder"
                 type="gfriend_yerin.textblurgallery.viewmodel.GalleryViewModel"/>
 
-        <variable
-                name="photoList"
-                type="ObservableArrayList&lt;PhotoVO&gt;"/>
 
     </data>
 
@@ -61,13 +58,12 @@
                 android:id="@+id/gallery_recycler"
                 android:layout_height="0dp"
                 android:layout_width="0dp"
+                bind_item="@{viewholder.photoList}"
                 app:layout_constraintTop_toBottomOf="@id/gallery_info_field"
                 app:layout_constraintStart_toStartOf="parent"
-                bind_item="@{photoList}"
                 app:layout_constraintEnd_toEndOf="parent"
+
                 app:layout_constraintBottom_toBottomOf="parent"/>
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
