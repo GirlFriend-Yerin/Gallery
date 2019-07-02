@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">TextBlurGallery</string>
+
+    <string name="gallery_selected_count">%d개 선택</string>
 </resources>
