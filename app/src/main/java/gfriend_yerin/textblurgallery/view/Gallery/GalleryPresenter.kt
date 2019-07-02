@@ -1,7 +1,6 @@
 package gfriend_yerin.textblurgallery.view.Gallery
 
 import gfriend_yerin.textblurgallery.data.GalleryDataSource
-import gfriend_yerin.textblurgallery.data.obj.PhotoVO
 
 class GalleryPresenter(private val dataSource: GalleryDataSource) : GalleryContract.Presenter {
 
@@ -12,8 +11,9 @@ class GalleryPresenter(private val dataSource: GalleryDataSource) : GalleryContr
         this.view = view
     }
 
-    override fun loadPhotoList(){
+    override fun initView(){
         view!!.initAdapter(dataSource.loadGallery())
+        view!!.updateCountUI(count)
     }
 
     override fun countUp(){

@@ -7,15 +7,16 @@ interface GalleryContract {
         fun updateCountUI(cnt : Int)
 
         fun initAdapter(list : ArrayList<PhotoVO>)
+
+
         fun updateAdapter()
         fun updateAdapter(pos : Int)
-
     }
 
     interface Presenter{
         fun setView(view : GalleryContract.View)
 
-        fun loadPhotoList()
+        fun initView()
         fun countUp()
         fun countDown()
     }

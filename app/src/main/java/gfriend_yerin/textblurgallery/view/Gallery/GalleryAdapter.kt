@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import gfriend_yerin.textblurgallery.data.obj.PhotoVO
 import gfriend_yerin.textblurgallery.view.OnItemClickListener
+import kotlinx.android.synthetic.main.activity_gallery.view.*
 import kotlinx.android.synthetic.main.gallery_item.view.*
 
 class GalleryAdapter(
@@ -24,6 +25,10 @@ class GalleryAdapter(
         return PhotoViewHolder(view)
     }
 
+    fun setOnItemClickListener(itemClickListener: OnItemClickListener){
+        this.itemClickListener = itemClickListener
+    }
+
     override fun getItemCount() = photoList.size
 
     override fun onBindViewHolder(holder: PhotoViewHolder, position: Int) = holder.bind(photoList[position], position)
@@ -32,6 +37,10 @@ class GalleryAdapter(
         fun bind(item: PhotoVO, position: Int) {
 
             Glide.with(view).load(item.imagePath).into(view.gallery_photo_item)
+
+            view.gallery_selected.isChecked = photoList[position].selected
+
+            view.setOnClickListener{ itemClickListener.OnItemClick(this, position)}
         }
     }
 }
