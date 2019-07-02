@@ -1,8 +1,9 @@
 package gfriend_yerin.textblurgallery.data
 
-import gfriend_yerin.textblurgallery.data.ValueObject.PhotoVO
+import gfriend_yerin.textblurgallery.data.obj.PhotoVO
 
 interface GalleryDataSource {
 
-    fun loadGallery() : List<PhotoVO>
+    fun loadGallery() : ArrayList<PhotoVO>
+    fun getSelectedCount() : Int
 }
