@@ -8,16 +8,19 @@ interface GalleryContract {
 
         fun initAdapter(list : ArrayList<PhotoVO>)
 
-
         fun updateAdapter()
         fun updateAdapter(pos : Int)
     }
 
     interface Presenter{
-        fun setView(view : GalleryContract.View)
+        fun setView(view : View)
 
         fun initView()
         fun countUp()
         fun countDown()
+
+        fun addItem(pos : Int)
+        fun removeItem(pos : Int)
+        fun getSelectedList() : ArrayList<String>
     }
 }

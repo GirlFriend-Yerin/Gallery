@@ -12,7 +12,15 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".view.Bluring.BulrActivity">
+        <!-- Firebase Dependency -->
+        <meta-data
+                android:name="com.google.firebase.ml.vision.DEPENDENCIES"
+                android:value="ocr" />
+
+        <activity
+                android:name=".view.Bluring.BlurActivity"
+                android:screenOrientation="portrait"
+        >
         </activity>
         <activity
                 android:name=".view.Splash.InitActivity"

@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import androidx.core.app.ActivityCompat
+import com.google.firebase.FirebaseApp
 import gfriend_yerin.textblurgallery.view.Gallery.GalleryActivity
 
 class InitActivity : AppCompatActivity() {
@@ -18,7 +19,14 @@ class InitActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        initApp()
         checkPermission()
+    }
+
+    private fun initApp(){
+
+        FirebaseApp.initializeApp(applicationContext)
+        FirebaseApp.getInstance()
     }
 
     private fun checkPermission() {

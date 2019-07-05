@@ -6,9 +6,6 @@ import android.provider.MediaStore
 import gfriend_yerin.textblurgallery.data.obj.PhotoVO
 
 class GalleryDataManager(private val context : Context) : GalleryDataSource{
-    override fun getSelectedCount(): Int {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
 
     companion object {
         @Volatile
@@ -28,7 +25,7 @@ class GalleryDataManager(private val context : Context) : GalleryDataSource{
         val uri : Uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
         val projection = arrayOf(MediaStore.MediaColumns.DATA, MediaStore.Images.Media.DATA, MediaStore.Images.Media.DATE_ADDED)
 
-        val cursor = context.contentResolver.query(uri, projection, null, null, null)
+        val cursor = context.contentResolver.query(uri, projection, null, null, null)!!
 
         val columnIndexData = cursor.getColumnIndexOrThrow(MediaStore.MediaColumns.DATA)
 

@@ -5,5 +5,4 @@ import gfriend_yerin.textblurgallery.data.obj.PhotoVO
 interface GalleryDataSource {
 
     fun loadGallery() : ArrayList<PhotoVO>
-    fun getSelectedCount() : Int
 }
